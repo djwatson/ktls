@@ -1,3 +1,7 @@
+cover-letter
+tls
+*.patch
+
 # Object files
 *.o
 *.ko
