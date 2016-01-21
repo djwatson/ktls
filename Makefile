@@ -1,5 +1,5 @@
 CFLAGS += -Wall -g
-LDFLAGS += -lssl -lpthread
+LDFLAGS += -lssl -lpthread -lcrypto
 
 TESTS = tls
 
