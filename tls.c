@@ -510,6 +510,7 @@ void *main_server(void* unused)
 
   ctx = InitServerCTX();/* initialize SSL */
   LoadCertificates(ctx, "ca.crt", "ca.pem");/* load certs */
+  SSL_CTX_set_cipher_list(ctx, "ECDH-ECDSA-AES128-GCM-SHA256");
 
   int server = OpenListener(port);/* create server socket */
   while (1)
