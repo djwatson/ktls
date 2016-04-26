@@ -196,7 +196,6 @@ int main_tls_client() {
 
   int res = 0;
   int total_recv = 0;
-  int cnt = 0;
 
   start = clock();
 
@@ -220,7 +219,6 @@ int main_tls_client() {
 
   res = 0;
   total_recv = 0;
-  cnt = 0;
 
   res = SSL_read(ssl, buf, 1);
 
@@ -382,7 +380,6 @@ int main_tls_client() {
   res = 0;
   total_recv = 0;
 
-  cnt = 0;
   res = recv(opfd, &buf, 1, 0);
 
   total_recv += res;
@@ -513,6 +510,7 @@ void *main_server(void* unused)
 
   ctx = InitServerCTX();/* initialize SSL */
   LoadCertificates(ctx, "ca.crt", "ca.pem");/* load certs */
+  SSL_CTX_set_cipher_list(ctx, "ECDH-ECDSA-AES128-GCM-SHA256");
 
   int server = OpenListener(port);/* create server socket */
   while (1)
